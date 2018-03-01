@@ -1,18 +1,8 @@
 var express = require('express');
+var middleware = require('./middleware.js');
 var app = express();
 var PORT = 3000;
-var middleware = {
-    requireAuthentication: function(req, res, next) {
-        console.log("pricate route hit sdfsd");
-        next();
 
-    },
-    logger: function(req, res, next) {
-        var datetime = new Date();
-        console.log(req.method + " " + req.originalUrl, ' ' + datetime);
-        next();
-    }
-}
 app.use(middleware.logger);
 app.get('/about', middleware.requireAuthentication, function(req, res) {
     res.send('About Us');
