@@ -3,7 +3,7 @@ var app = express();
 var PORT = 3000;
 var middleware = {
     requireAuthentication: function(req, res, next) {
-        console.log("pricate route hit");
+        console.log("pricate route hit sdfsd");
         next();
 
     },
